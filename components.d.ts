@@ -10,6 +10,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     LoadingIcon: typeof import('./src/components/LoadingIcon.vue')['default']
     MovieList: typeof import('./src/components/MovieList.vue')['default']
+    MovieType: typeof import('./src/components/MovieType.vue')['default']
     SideBar: typeof import('./src/components/SideBar.vue')['default']
   }
 }

@@ -9,14 +9,14 @@ initTE({ Sidenav })
 </script>
 
 <template>
-  <div>
+  <div class="fixed h-screen">
     <nav class="movie-sidebar-nav">
       <header class="sidebar-web-logo">
         <figure class="logo-container">
           <img src="/src/images/web-logo.png" class="logo-img" alt="">
-          <figcaption class="logo-name">
+          <!-- <figcaption class="logo-name">
             MOVIEMATRIX
-          </figcaption>
+          </figcaption> -->
         </figure>
       </header>
 

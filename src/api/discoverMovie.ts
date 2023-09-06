@@ -3,7 +3,7 @@ import { API_KEY } from '@/utils/config'
 
 import type { List } from '@/types/list'
 
-const DISCOVER_API_URL = `${import.meta.env.VITE_API_URL}/3/discover/movie?api_key=${API_KEY}&language=zh-CN&page=2`
+const DISCOVER_API_URL = `${import.meta.env.VITE_API_URL}/3/discover/movie?api_key=${API_KEY}&language=ja-JP&page=2`
 
 // const options = {
 //   method: 'GET',
