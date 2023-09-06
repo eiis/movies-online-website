@@ -7,9 +7,9 @@ import {
 } from 'tw-elements'
 import LoadingIcon from './LoadingIcon.vue'
 import MovieType from './MovieType.vue'
-import fetchApi from '@/utils/server'
 import { API_KEY } from '@/utils/config'
 import type { List } from '@/types/list'
+import fetchService from '@/utils/server'
 
 onMounted(() => {
   initTE({ Modal })
@@ -36,16 +36,13 @@ interface Genre {
 const list = ref<List[]>([])
 
 onMounted(async () => {
-  const { data: { genres } } = await fetchApi<MyResponseType<Genre>>(`${GENRES_API_URL}`)
-  console.log(genres, 'genre')
+  const { data: { genres } } = await fetchService.get<MyResponseType<Genre>>(GENRES_API_URL)
 })
 
 const MovieList = defineAsyncComponent({
   loader: () => new Promise<Component>(async (resolve) => {
-    const response = await fetchApi<MyResponseType<List>>(`${DISCOVER_API_URL}`)
-
+    const response = await fetchService.get<MyResponseType<List>>(DISCOVER_API_URL)
     list.value = response.data.results as List[]
-
     const component = await modules['/src/components/MovieList.vue']() as Promise<{ default: Component }>
 
     // setTimeout(() => {
