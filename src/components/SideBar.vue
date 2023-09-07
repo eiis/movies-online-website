@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="flex fixed top-0 left-0 h-screen w-16 flex-col justify-between border-e bg-white">
+  <div class="flex fixed top-0 left-0 h-screen flex-col justify-between dark:bg-black bg-white">
     <div>
       <div class="inline-flex h-16 w-16 items-center justify-center">
         <span

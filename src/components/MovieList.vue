@@ -12,10 +12,8 @@ const emit = defineEmits<{
 }>()
 
 function itemClick(item: List) {
-  console.log(item)
 }
 function handlePageClick(page: number) {
-  // console.log('Page clicked:', page)
   emit('handlePageClick', page)
 }
 </script>

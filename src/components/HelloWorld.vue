@@ -27,6 +27,7 @@ interface Genre {
 const list = ref<List[]>([])
 const sideHover = ref(false)
 const initialLoad = ref(true)
+const showSidebar = ref(false)
 
 onMounted(async () => {
   getMovieList()
@@ -58,23 +59,47 @@ async function handlePageClick(page: number) {
   currentPage.value = page
   getMovieList()
 }
+
+function menuClick(event: any) {
+  event.stopPropagation()
+
+  const sideBarElement = document.querySelector('#sideBar')
+  sideBarElement?.classList.remove('max-[480px]:hidden')
+  sideBarElement?.classList.add('block')
+  sideHover.value = true
+}
+
+function overClick() {
+  const sideBarElement = document.querySelector('#sideBar')
+  sideBarElement?.classList.add('max-[480px]:hidden')
+  sideBarElement?.classList.remove('block')
+  sideHover.value = false
+}
 </script>
 
 <template>
-  <div class="flex justify-center flex-row w-full h-full bg-[#dee2e6]">
+  <div class="flex justify-center flex-row w-full h-full dark:bg-black bg-[#dee2e6]" @click="sideHover && overClick()">
     <div
+      id="sideBar"
       class="relative w-20 z-[1000] max-[480px]:hidden visible"
       @mouseenter="mouseenter"
       @mouseleave="mouseleave"
     >
       <SideBar />
     </div>
-    <div :class="{ 'h-screen': list.length === 0 }" class="w-full bg-[#dee2e6] flex flex-col px-4 relative">
-      <div :class="{ 'scale-95 opacity-30 ': sideHover }" class="flex transition-all ease-in-out duration-300 font-['Poppins'] text-4xl font-bold bg-[#dee2e6] py-4 sticky top-0 z-20">
-        <p>Popular Movies</p>
+    <div :class="{ 'h-screen': list.length === 0 }" class="w-full dark:bg-black bg-[#dee2e6] flex flex-col px-4 relative">
+      <div :class="{ 'scale-95 opacity-30': sideHover }" class="flex items-center justify-between transition-all ease-in-out duration-300 font-['Poppins'] text-4xl font-bold py-4 sticky top-0 z-20">
+        <div>
+          <p>Popular Movies</p>
+        </div>
+        <div class="max-[480px]:block hidden dark:text-white text-black" @click="menuClick">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+          </svg>
+        </div>
       </div>
       <LoadingIcon v-if="list.length === 0" class="flex-grow" />
-      <MovieList :list="list" class="transition-all ease-in-out duration-300" :class="{ 'scale-95 opacity-30 ': sideHover }" @handlePageClick="handlePageClick" />
+      <MovieList v-else :list="list" class="transition-all ease-in-out duration-300" :class="{ 'scale-95 opacity-30 ': sideHover }" @handlePageClick="handlePageClick" />
     </div>
   </div>
   <!-- <MovieType /> -->
