@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.41.0",
-    "tw-elements": "1.0.0-rc.1",
     "unplugin-auto-import": "^0.16.6",
     "vue": "^3.3.4"
   },

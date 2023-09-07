@@ -11,6 +11,8 @@ declare module 'vue' {
     LoadingIcon: typeof import('./src/components/LoadingIcon.vue')['default']
     MovieList: typeof import('./src/components/MovieList.vue')['default']
     MovieType: typeof import('./src/components/MovieType.vue')['default']
+    PageNation: typeof import('./src/components/PageNation.vue')['default']
+    PagiNation: typeof import('./src/components/PagiNation.vue')['default']
     SideBar: typeof import('./src/components/SideBar.vue')['default']
   }
 }

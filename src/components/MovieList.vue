@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PagiNation from './PagiNation.vue'
 import { IMG_PATH } from '@/utils/config'
 import type { List } from '@/types/list'
 
@@ -6,17 +7,25 @@ defineProps<{
   list: List[]
 }>()
 
+const emit = defineEmits<{
+  (event: 'handlePageClick', page: number): void
+}>()
+
 function itemClick(item: List) {
   console.log(item)
+}
+function handlePageClick(page: number) {
+  // console.log('Page clicked:', page)
+  emit('handlePageClick', page)
 }
 </script>
 
 <template>
-  <div class="w-full my-4">
+  <div class="w-full mb-4">
     <div class="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4 mb-2">
       <div v-for="(item, index) in list" :key="index" class="group relative text-[#099268]" @click="itemClick(item)">
         <img
-          class="w-full h-full transition ease-in-out duration-150 group-hover:-z-50 group-hover:opacity-50"
+          class="w-full h-full rounded transition ease-in-out duration-150 group-hover:-z-50 group-hover:opacity-50"
           :src="IMG_PATH + item.poster_path" :alt="item.original_title"
         >
         <div class="overlay-card invisible group-hover:visible group-hover:opacity-80" />
@@ -32,6 +41,7 @@ function itemClick(item: List) {
         </div>
       </div>
     </div>
+    <PagiNation @pageClick="handlePageClick" />
   </div>
 </template>
 

@@ -1,126 +1,166 @@
 <script setup lang="ts">
-// import { ref } from 'vue'
-import {
-  Sidenav,
-  initTE,
-} from 'tw-elements'
-
-initTE({ Sidenav })
 </script>
 
 <template>
-  <div class="fixed h-screen">
-    <nav class="movie-sidebar-nav">
-      <header class="sidebar-web-logo">
-        <figure class="logo-container">
-          <img src="/src/images/web-logo.png" class="logo-img" alt="">
-          <!-- <figcaption class="logo-name">
-            MOVIEMATRIX
-          </figcaption> -->
-        </figure>
-      </header>
-
-      <div class="sidebar-buttons">
-        <div class="search-input-container">
-          <form
-            action="#"
-            data-type-btn="form-btn"
-            class="sidebar-form nav-form-btn"
-          >
-            <button class="sidebar-search-btn nav-search-btn">
-              <i class="bx bx-search-alt" />
-            </button>
-
-            <input
-              id=""
-              type="text"
-              class="sidebar-search-input"
-              placeholder="Search Movies..."
-              name=""
-            >
-          </form>
-
-          <h3 class="secondary-title">
-            Search
-          </h3>
-        </div>
-
-        <ul class="nav-lists sidebar-lists-btn">
-          <li class="nav-list sidebar-expansion-btn">
-            <a
-              data-page="expand"
-              data-type-btn="expand"
-              class="nav-btn sidebar-expand-btn"
-            >
-              <i class="bx bx-chevrons-right" />
-            </a>
-            <h3 class="secondary-title expand-secondary">
-              Expand
-            </h3>
-          </li>
-
-          <li class="nav-list">
-            <a data-page="home" class="nav-btn">
-              <i class="bx bx-home" />
-              <h3 class="nav-title">Home</h3>
-            </a>
-            <h3 class="secondary-title">
-              Home
-            </h3>
-          </li>
-
-          <li class="nav-list">
-            <a data-page="trending" class="nav-btn">
-              <i class="bx bxs-hot" />
-              <h3 class="nav-title">Trending</h3>
-            </a>
-            <h3 class="secondary-title">
-              Trending
-            </h3>
-          </li>
-
-          <li class="nav-list">
-            <a data-page="movies-pop" class="nav-btn">
-              <i class="bx bx-movie" />
-              <h3 class="nav-title">Movies</h3>
-            </a>
-            <h3 class="secondary-title">
-              Movies
-            </h3>
-          </li>
-
-          <li class="nav-list">
-            <a data-page="tvs-pop" class="nav-btn">
-              <i class="bx bx-tv" />
-              <h3 class="nav-title">TV's</h3>
-            </a>
-            <h3 class="secondary-title">
-              TV Shows
-            </h3>
-          </li>
-
-          <li class="nav-list">
-            <a data-page="bookmarks" class="nav-btn">
-              <i class="icon-bm bx bx-book-bookmark" />
-              <h3 class="nav-title">Bookmarks</h3>
-            </a>
-            <h3 class="secondary-title">
-              Bookmarks
-            </h3>
-          </li>
-        </ul>
+  <div class="flex fixed top-0 left-0 h-screen w-16 flex-col justify-between border-e bg-white">
+    <div>
+      <div class="inline-flex h-16 w-16 items-center justify-center">
+        <span
+          class="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
+        >
+          F
+        </span>
       </div>
 
-      <footer class="sidebar-footer nav-list">
-        <a data-page="settings" class="nav-btn">
-          <i class="ph-gear settings-icon" />
-          <h3 class="nav-title">Settings</h3>
-        </a>
-        <h3 class="secondary-title">
-          Settings
-        </h3>
-      </footer>
-    </nav>
+      <div class="border-t border-gray-100">
+        <div class="px-2">
+          <div class="py-4">
+            <a
+              href=""
+              class="t group relative flex justify-center rounded bg-blue-50 px-2 py-1.5 text-blue-700"
+            >
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+              <span
+                class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:z-[1000] group-hover:opacity-100"
+              >
+                General
+              </span>
+            </a>
+          </div>
+
+          <ul class="space-y-1 border-t border-gray-100 pt-4">
+            <li>
+              <a
+                href=""
+                class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              >
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>
+
+                <span
+                  class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                >
+                  Teams
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href=""
+                class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 opacity-75"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                  />
+                </svg>
+
+                <span
+                  class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                >
+                  Billing
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href=""
+                class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 opacity-75"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
+                </svg>
+
+                <span
+                  class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                >
+                  Invoices
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href=""
+                class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 opacity-75"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+
+                <span
+                  class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+                >
+                  Account
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2">
+      <form action="/logout">
+        <button
+          type="submit"
+          class="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 opacity-75"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+            />
+          </svg>
+
+          <span
+            class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+          >
+            Logout
+          </span>
+        </button>
+      </form>
+    </div>
   </div>
 </template>
 

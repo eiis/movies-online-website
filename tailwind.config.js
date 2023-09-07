@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,vue}', './index.html', './node_modules/tw-elements/dist/js/**/*.js'],
+  content: ['./src/**/*.{html,js,vue}', './index.html'],
   theme: {
     extend: {
       fontFamily: {
@@ -18,5 +18,5 @@ export default {
       },
     },
   },
-  plugins: [require('tw-elements/dist/plugin.cjs')],
+  plugins: [],
 }
