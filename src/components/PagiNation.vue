@@ -7,13 +7,19 @@ const currentPage = ref(1)
 const totalPages = 500
 const visiblePages = computed(() => {
   const pages = []
-  if (currentPage.value > 1)
-    pages.push(currentPage.value - 1)
-
-  pages.push(currentPage.value)
-  if (currentPage.value < totalPages)
-    pages.push(currentPage.value + 1)
-
+  if (totalPages <= 5) { // 如果总页面数小于或等于5，显示所有页面
+    for (let i = 1; i <= totalPages; i++)
+      pages.push(i)
+  }
+  else if (currentPage.value <= 2) { // 当前页面为1或2，显示前5页
+    pages.push(1, 2, 3, 4, 5)
+  }
+  else if (currentPage.value >= totalPages - 1) { // 当前页面为倒数第二页或最后一页，显示最后5页
+    pages.push(totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages)
+  }
+  else { // 在所有其他情况下，确保currentPage位于中心
+    pages.push(currentPage.value - 2, currentPage.value - 1, currentPage.value, currentPage.value + 1, currentPage.value + 2)
+  }
   return pages
 })
 
@@ -39,10 +45,23 @@ function nextClick() {
     emitChange(currentPage.value)
   }
 }
+
+function PageOneClick() {
+  currentPage.value = 1
+  emitChange(1)
+}
+
+function PageLastClick() {
+  currentPage.value = 500
+  emitChange(500)
+}
 </script>
 
 <template>
   <ol class="flex justify-center gap-1 text-xs font-medium">
+    <li class="inline-flex h-8 w-12 items-center justify-center rounded bg-white hover:bg-slate-300 text-gray-900 rtl:rotate-180" @click="PageOneClick">
+      Page1
+    </li>
     <li class="inline-flex h-8 w-8 items-center justify-center rounded bg-white hover:bg-slate-300 text-gray-900 rtl:rotate-180" @click="prevClick">
       <span class="sr-only">Prev Page</span>
       <svg
@@ -87,6 +106,10 @@ function nextClick() {
           clip-rule="evenodd"
         />
       </svg>
+    </li>
+
+    <li class="inline-flex h-8 w-12 items-center justify-center rounded bg-white hover:bg-slate-300 text-gray-900 rtl:rotate-180" @click="PageLastClick">
+      Last
     </li>
   </ol>
 </template>

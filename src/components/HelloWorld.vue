@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
-import LoadingIcon from './LoadingIcon.vue'
 import MovieType from './MovieType.vue'
 import { API_KEY } from '@/utils/config'
 import type { List } from '@/types/list'
@@ -13,8 +11,6 @@ const DISCOVER_API_URL = computed<string>(() => {
 })
 
 const GENRES_API_URL = `${import.meta.env.VITE_API_URL}/3/genre/movie/list?api_key=${API_KEY}&language=zh-CN`
-
-const modules = import.meta.glob('@/components/MovieList.vue')
 
 interface MyResponseType<T> {
   page?: number
@@ -30,39 +26,37 @@ interface Genre {
 
 const list = ref<List[]>([])
 const sideHover = ref(false)
+const initialLoad = ref(true)
 
 onMounted(async () => {
+  getMovieList()
   const { data: { genres } } = await fetchService.get<MyResponseType<Genre>>(GENRES_API_URL)
 })
 
-const MovieList = defineAsyncComponent({
-  loader: () => new Promise<Component>(async (resolve) => {
-    const response = await fetchService.get<MyResponseType<List>>(DISCOVER_API_URL.value)
-    list.value = response.data.results as List[]
-    console.log('response.data', response.data)
-    const component = await modules['/src/components/MovieList.vue']() as Promise<{ default: Component }>
-
-    // setTimeout(() => {
-    resolve(component)
-    // }, 90000000)
-  }),
-  loadingComponent: LoadingIcon,
-})
-
 function mouseenter() {
-  console.log('mouseenter')
   sideHover.value = true
 }
 function mouseleave() {
-  console.log('mouseleave')
   sideHover.value = false
 }
 
+async function getMovieList() {
+  try {
+    const response = await fetchService.get<MyResponseType<List>>(DISCOVER_API_URL.value)
+    if (response.status === 200) {
+      list.value = response.data.results as List[]
+      initialLoad.value = false
+    }
+  }
+  catch (error) {
+    console.log('error', error)
+  }
+}
+
 async function handlePageClick(page: number) {
-  console.log('page', page)
+  list.value = []
   currentPage.value = page
-  const response = await fetchService.get<MyResponseType<List>>(DISCOVER_API_URL.value)
-  list.value = response.data.results as List[]
+  getMovieList()
 }
 </script>
 
@@ -75,10 +69,11 @@ async function handlePageClick(page: number) {
     >
       <SideBar />
     </div>
-    <div class="w-full bg-[#dee2e6] flex flex-col px-4 relative">
+    <div :class="{ 'h-screen': list.length === 0 }" class="w-full bg-[#dee2e6] flex flex-col px-4 relative">
       <div :class="{ 'scale-95 opacity-30 ': sideHover }" class="flex transition-all ease-in-out duration-300 font-['Poppins'] text-4xl font-bold bg-[#dee2e6] py-4 sticky top-0 z-20">
         <p>Popular Movies</p>
       </div>
+      <LoadingIcon v-if="list.length === 0" class="flex-grow" />
       <MovieList :list="list" class="transition-all ease-in-out duration-300" :class="{ 'scale-95 opacity-30 ': sideHover }" @handlePageClick="handlePageClick" />
     </div>
   </div>
