@@ -88,7 +88,7 @@ function overClick() {
       <SideBar />
     </div>
     <div :class="{ 'h-screen': list.length === 0 }" class="w-full dark:bg-black bg-[#dee2e6] flex flex-col px-4 relative">
-      <div :class="{ 'scale-95 opacity-30': sideHover }" class="flex items-center justify-between transition-all ease-in-out duration-300 font-['Poppins'] text-4xl font-bold py-4 sticky top-0 z-20">
+      <div :class="{ 'scale-95 opacity-30': sideHover }" class="bg-[#dee2e6] dark:bg-black flex items-center justify-between transition-all ease-in-out duration-300 font-['Poppins'] text-4xl font-bold py-4 sticky top-0 z-20">
         <div>
           <p>Popular Movies</p>
         </div>
