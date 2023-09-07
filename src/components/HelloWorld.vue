@@ -63,7 +63,7 @@ async function handlePageClick(page: number) {
 <template>
   <div class="flex justify-center flex-row w-full h-full bg-[#dee2e6]">
     <div
-      class="relative w-20 z-[1000]"
+      class="relative w-20 z-[1000] max-[480px]:hidden visible"
       @mouseenter="mouseenter"
       @mouseleave="mouseleave"
     >

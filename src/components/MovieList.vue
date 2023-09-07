@@ -22,7 +22,7 @@ function handlePageClick(page: number) {
 
 <template>
   <div class="w-full mb-4">
-    <div class="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4 mb-2">
+    <div class="grid max-[480px]:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4 mb-2">
       <div v-for="(item, index) in list" :key="index" class="group relative text-[#099268]" @click="itemClick(item)">
         <img
           class="w-full h-full rounded transition ease-in-out duration-150 group-hover:-z-50 group-hover:opacity-50"
@@ -34,7 +34,7 @@ function handlePageClick(page: number) {
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
           </svg>
         </div>
-        <div class="w-[90%] bg-[#dee2e6] rounded-[5px] p-4 m-2 flex items-center justify-center group-hover:animate-wiggle  text-center invisible group-hover:visible absolute bottom-0 left-0">
+        <div class="w-[90%] text-base bg-[#dee2e6] rounded-[5px] p-4 m-2 flex items-center justify-center group-hover:animate-wiggle  text-center invisible group-hover:visible absolute bottom-0 left-0">
           <p>
             {{ item.title }}
           </p>
