@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div class="flex fixed top-0 left-0 h-screen flex-col justify-between dark:bg-black bg-white">
+  <div class="sticky top-0 flex h-screen flex-col justify-between dark:bg-black bg-white">
     <div>
-      <div class="inline-flex h-16 w-16 items-center justify-center">
+      <div class="inline-flex h-16 w-full items-center justify-center">
         <span
           class="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
         >

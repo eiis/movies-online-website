@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PagiNation from './PagiNation.vue'
 import { IMG_PATH } from '@/utils/config'
 import type { List } from '@/types/list'
 
@@ -19,7 +18,7 @@ function handlePageClick(page: number) {
 </script>
 
 <template>
-  <div class="w-full mb-4">
+  <div class="w-full mb-4 relative flex flex-col">
     <div class="grid max-[480px]:grid-cols-[repeat(auto-fill,minmax(120px,1fr))] grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-4 mb-2">
       <div v-for="(item, index) in list" :key="index" class="group relative text-[#099268]" @click="itemClick(item)">
         <img

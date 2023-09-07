@@ -12,9 +12,15 @@ export default {
           '50%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(0)' },
         },
+        sideAn: {
+          '0%': { transform: 'translateX(-55%)' },
+          '50%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
       },
       animation: {
         wiggle: 'wiggle .5s ease-in-out forwards',
+        sideAn: 'sideAn 1s ease-in-out forwards',
       },
     },
     screens: {
