@@ -2,11 +2,11 @@
 </script>
 
 <template>
-  <div class="sticky top-0 flex h-screen flex-col justify-between dark:bg-black bg-white">
+  <div class="sticky top-0 flex h-screen flex-col justify-between bg-white dark:bg-black">
     <div>
       <div class="inline-flex h-16 w-full items-center justify-center">
         <span
-          class="grid h-10 w-10 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600"
+          class="grid h-10 w-10 place-content-center rounded-lg text-xs text-gray-600"
         >
           F
         </span>
@@ -135,7 +135,7 @@
       </div>
     </div>
 
-    <div class="sticky inset-x-0 bottom-0 bg-white p-2">
+    <div class="sticky inset-x-0 bottom-0 p-2">
       <form action="/logout">
         <button
           type="submit"
