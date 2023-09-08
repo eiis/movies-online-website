@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.41.0",
+    "@types/qs": "^6.9.8",
     "daisyui": "^3.7.3",
+    "qs": "^6.11.2",
     "unplugin-auto-import": "^0.16.6",
     "vue": "^3.3.4"
   },

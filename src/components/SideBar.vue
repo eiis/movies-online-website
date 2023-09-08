@@ -14,22 +14,40 @@
 
       <div class="border-t dark:border-black border-gray-100">
         <div class="px-2">
-          <div class="py-4">
-            <a
-              href=""
-              class="t group relative flex justify-center rounded bg-blue-50 px-2 py-1.5 text-blue-700"
+          <div class="my-2 group relative flex justify-center rounded bg-blue-50 px-2 py-1.5 text-blue-700">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            <span
+              class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:z-[1000] group-hover:opacity-100"
             >
-              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
-              <span
-                class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:z-[1000] group-hover:opacity-100"
-              >
-                Search
-              </span>
-            </a>
+              Search
+            </span>
           </div>
 
-          <ul class="space-y-1 border-t dark:border-black border-gray-100 pt-4">
-            <li>
+          <div class="space-y-1 border-t dark:border-black border-gray-100 pt-4">
+            <div class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 opacity-75"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                />
+              </svg>
+
+              <span
+                class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
+              >
+                Trending
+              </span>
+            </div>
+
+            <div>
               <a
                 href=""
                 class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
@@ -55,37 +73,9 @@
                   Billing
                 </span>
               </a>
-            </li>
+            </div>
 
-            <li>
-              <a
-                href=""
-                class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 opacity-75"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                  />
-                </svg>
-
-                <span
-                  class="absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded bg-gray-900 px-2 py-1.5 text-xs font-medium text-white opacity-0 group-hover:opacity-100"
-                >
-                  Billing
-                </span>
-              </a>
-            </li>
-
-            <li>
+            <div>
               <a
                 href=""
                 class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
@@ -111,9 +101,9 @@
                   Invoices
                 </span>
               </a>
-            </li>
+            </div>
 
-            <li>
+            <div>
               <a
                 href=""
                 class="group relative flex justify-center rounded px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
@@ -139,8 +129,8 @@
                   Account
                 </span>
               </a>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
