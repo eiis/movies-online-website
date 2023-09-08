@@ -91,6 +91,7 @@ function overClick() {
 
 function genreClick(item: Genre) {
   open.value = false
+  console.log('open.value', open.value)
   list.value = []
   const obj = {
     with_genres: item.id,
@@ -103,7 +104,7 @@ function genreClick(item: Genre) {
   <div class="w-full h-full relative flex justify-center flex-row dark:bg-black bg-blue-50" @click="sideHover && overClick()">
     <div
       id="sideBar"
-      class="w-20 relative z-[1000] animate-sideAn max-[480px]:hidden visible"
+      class="w-20 relative z-[1000] animate-sideAn max-[640px]:hidden visible"
       @mouseenter="mouseenter"
       @mouseleave="mouseleave"
     >
@@ -115,8 +116,8 @@ function genreClick(item: Genre) {
           <div>
             <p>Popular Movies</p>
           </div>
-          <div class="dropdown mx-2 max-[480px]:hidden visible">
-            <label tabindex="0" class="btn m-1 bg-[#099268] hover:bg-[#099268]" @click="() => open = true">Type</label>
+          <div class="dropdown mx-2 max-[640px]:hidden visible">
+            <label tabindex="0" class="btn m-1 bg-[#099268] hover:bg-[#099268]" @click="() => open = !open">Type</label>
             <div v-if="open" tabindex="0" class="w-[40vw] grid grid-cols-3 text-center dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box">
               <div v-for="(item, index) in genresList" :key="index" @click="genreClick(item)">
                 <div class="hover:text-[#099268] my-2">
@@ -127,8 +128,8 @@ function genreClick(item: Genre) {
           </div>
         </div>
         <div class="flex justify-center items-center">
-          <div class="dropdown mx-2 max-[480px]:block hidden">
-            <div tabindex="0" class="m-1" @click="() => open = true">
+          <div class="dropdown mx-2 max-[640px]:block hidden">
+            <div tabindex="0" class="m-1" @click="() => open = !open">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
               </svg>
@@ -141,7 +142,7 @@ function genreClick(item: Genre) {
               </div>
             </div>
           </div>
-          <div class="max-[480px]:block hidden dark:text-white text-black" @click="menuClick">
+          <div class="max-[640px]:block hidden dark:text-white text-black" @click="menuClick">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
             </svg>
